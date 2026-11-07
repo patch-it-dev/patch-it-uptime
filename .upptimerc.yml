@@ -1,31 +1,58 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# patch-it status page · https://status.patch-it.dev
+# Docs: https://upptime.js.org/docs/configuration
+# Handbook: developer-handbook/runbooks/status-page.md
+owner: patch-it-dev
+repo: patch-it-uptime
 
+# Who gets assigned when a site goes down (a GitHub issue is opened automatically)
+assignees:
+  - adssib
+
+# Only list services that are LIVE. A service that isn't deployed yet
+# opens a downtime issue immediately. Uncomment each one when it goes live.
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
+  - name: Website
+    url: https://patch-it.dev
+    slug: website
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 3000
+  # - name: Docs
+  #   url: https://docs.patch-it.dev
+  #   slug: docs
+  #   expectedStatusCodes:
+  #     - 200
+  #   maxResponseTime: 3000
+  # - name: Change feed API
+  #   url: https://api.patch-it.dev/v1/health
+  #   slug: api
+  #   expectedStatusCodes:
+  #     - 200
+  #   maxResponseTime: 2000
+  # - name: App
+  #   url: https://app.patch-it.dev
+  #   slug: app
+  #   expectedStatusCodes:
+  #     - 200
+  #   maxResponseTime: 3000
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  cname: status.patch-it.dev
+  name: patch-it status
+  logoUrl: https://raw.githubusercontent.com/patch-it-dev/patch-it-uptime/master/assets/patch-it-logo.svg
+  favicon: https://raw.githubusercontent.com/patch-it-dev/patch-it-uptime/master/assets/patch-it-logo.svg
+  faviconSvg: https://raw.githubusercontent.com/patch-it-dev/patch-it-uptime/master/assets/patch-it-logo.svg
+  theme: dark
+  introTitle: "**patch-it** system status"
+  introMessage: Live status of the patch-it website, docs and change feed API. Checked every 5 minutes from GitHub, independently of our own infrastructure. Incidents are tracked as [GitHub issues](https://github.com/patch-it-dev/patch-it-uptime/issues).
   navbar:
     - title: Status
       href: /
+    - title: Website
+      href: https://patch-it.dev
+    - title: Docs
+      href: https://docs.patch-it.dev
     - title: GitHub
-      href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+      href: https://github.com/patch-it-dev
+  customHeadHtml: <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&family=IBM+Plex+Sans:wght@400;600&display=swap">
+  css: "body { font-family: 'IBM Plex Sans', system-ui, sans-serif; } h1, h2, h3, nav a { font-family: 'IBM Plex Mono', ui-monospace, monospace; } a { color: #ff8a57; }"
