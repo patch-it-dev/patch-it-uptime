@@ -1,0 +1,66 @@
+/* patch-it status page home view (see assets/status.js). Colors: patch-it Dark theme tokens. */
+html.pi-home main { display: none; }
+#pi-status { padding-bottom: 3rem; max-width: 880px; }
+#pi-status[hidden] { display: none; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.pi-title { margin: 8px 0 20px; font-size: 32px; font-weight: 600; letter-spacing: -0.015em; }
+.pi-banner { display: flex; align-items: center; gap: 14px; padding: 20px 24px; border-radius: 14px; margin: 8px 0 32px; border: 1px solid; }
+.pi-banner p { margin: 0; font-size: 20px; font-weight: 600; }
+.pi-banner .pi-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.pi-banner.pi-up { background: #10241a; border-color: #1f5130; } .pi-banner.pi-up .pi-dot { background: #3fb950; }
+.pi-banner.pi-degraded { background: #2a2210; border-color: #5a4614; } .pi-banner.pi-degraded .pi-dot { background: #d4a72c; }
+.pi-banner.pi-down { background: #2c1517; border-color: #6b2a2c; } .pi-banner.pi-down .pi-dot { background: #f47067; }
+
+.pi-row-head { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 4px 8px; font-size: 14px; color: #9ba3ad; margin-bottom: 8px; }
+.pi-row-head a { color: #e9ebee; }
+
+.pi-services { border: 1px solid #2a313b; border-radius: 14px; background: #12161c; overflow: hidden; }
+.pi-service { padding: 20px 24px; border-top: 1px solid #2a313b; }
+.pi-service:first-child { border-top: 0; }
+.pi-service-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.pi-service h3 { margin: 0; font-size: 17px; font-weight: 600; font-family: 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: 0; }
+.pi-service h3 a { color: #e9ebee; text-decoration: none; }
+.pi-service h3 a:hover { text-decoration: underline; }
+.pi-url { margin-left: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 400; color: #868f9b; }
+.pi-state { font-size: 14px; font-weight: 600; }
+.pi-state.pi-up { color: #3fb950; } .pi-state.pi-degraded { color: #d4a72c; } .pi-state.pi-down { color: #f47067; }
+
+.pi-bars { display: flex; gap: 2px; height: 34px; }
+.pi-bar { flex: 1; min-width: 0; border-radius: 2px; cursor: default; transition: opacity 120ms ease-out; }
+.pi-bars:hover .pi-bar { opacity: 0.55; }
+.pi-bars .pi-bar:hover { opacity: 1; }
+.pi-ok, .pi-sw.pi-ok { background: #3fb950; }
+.pi-minor, .pi-sw.pi-minor { background: #d4a72c; }
+.pi-partial, .pi-sw.pi-partial { background: #e8833a; }
+.pi-major, .pi-sw.pi-major { background: #f47067; }
+.pi-nodata, .pi-sw.pi-nodata { background: #2a313b; }
+
+.pi-axis { display: flex; align-items: center; gap: 12px; margin-top: 8px; font-size: 13px; color: #868f9b; }
+.pi-axis i { flex: 1; height: 1px; background: #2a313b; }
+.pi-axis span:nth-child(3) { color: #c5cad1; }
+.pi-more { margin: 10px 0 0; font-size: 13px; }
+
+.pi-legend { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 0; margin: 12px 0 40px; font-size: 13px; color: #9ba3ad; }
+.pi-legend li { display: flex; align-items: center; gap: 6px; }
+.pi-sw { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+
+.pi-h { margin: 0 0 12px; }
+.pi-incident { background: #12161c; border: 1px solid #2a313b; border-radius: 14px; padding: 16px 20px; margin-bottom: 12px; border-left: 4px solid #3fb950; }
+.pi-incident.pi-active { border-left-color: #f47067; }
+.pi-incident h3 { margin: 0 0 4px; font-size: 16px; font-family: 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: 0; }
+.pi-incident h3 a { color: #e9ebee; }
+.pi-meta { margin: 0; font-size: 13px; color: #9ba3ad; }
+.pi-empty { color: #9ba3ad; margin: 0 0 24px; }
+.pi-foot { margin-top: 40px; font-size: 13px; color: #868f9b; }
+
+.pi-tip { position: absolute; z-index: 10; background: #1a1f27; color: #e9ebee; border: 1px solid #5d6775; border-radius: 10px; padding: 8px 12px; font-size: 13px; line-height: 1.45; pointer-events: none; white-space: nowrap; }
+.pi-tip[hidden] { display: none; }
+
+@media (max-width: 640px) {
+  nav a { padding: 1rem 0.7rem !important; }
+  nav .logo { margin-right: 0.5rem !important; }
+  .pi-bars { gap: 1px; height: 30px; }
+  .pi-service { padding: 16px; }
+  .pi-url { display: block; margin: 2px 0 0; }
+}

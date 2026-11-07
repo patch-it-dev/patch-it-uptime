@@ -40,13 +40,19 @@ status-website:
   cname: status.patch-it.dev
   name: patch-it status
   # Brand: patch-it-brand (logo/, web/, design system tokens). Same look as patch-it.dev.
-  # Assets are served through jsDelivr so browsers get the right content type.
-  logoUrl: https://cdn.jsdelivr.net/gh/patch-it-dev/patch-it-uptime@master/assets/wordmark-on-dark.svg
+  # Upptime copies assets/ to the site root, so assets are served from status.patch-it.dev itself.
+  logoUrl: /wordmark-on-dark.svg
   logoHref: https://status.patch-it.dev
   hideNavTitle: true
-  favicon: https://cdn.jsdelivr.net/gh/patch-it-dev/patch-it-uptime@master/assets/icon-192.png
-  faviconSvg: https://cdn.jsdelivr.net/gh/patch-it-dev/patch-it-uptime@master/assets/favicon.svg
+  favicon: /icon-192.png
+  faviconSvg: /favicon.svg
   theme: dark
+  # Our home view: overall banner, 90-day uptime bars per service, incidents (assets/status.js + status.css).
+  scripts:
+    - src: /status.js
+  links:
+    - rel: stylesheet
+      href: /status.css
   introTitle: "patch-it system status"
   introMessage: Live status of the patch-it website and docs, checked every 5 minutes from GitHub, independently of our own hosting. Incidents are tracked as [GitHub issues](https://github.com/patch-it-dev/patch-it-uptime/issues).
   navbar:
