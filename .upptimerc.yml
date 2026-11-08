@@ -41,18 +41,20 @@ status-website:
   name: patch-it status
   # Brand: patch-it-brand (logo/, web/, design system tokens). Same look as patch-it.dev.
   # Upptime copies assets/ to the site root, so assets are served from status.patch-it.dev itself.
-  logoUrl: /wordmark-on-dark.svg
+  # Always use FULL URLs for these, never "/file.svg": the build crawls root-relative links before
+  # copying assets/, saves the 404 as a folder, and then fails with EISDIR.
+  logoUrl: https://status.patch-it.dev/wordmark-on-dark.svg
   logoHref: https://status.patch-it.dev
   hideNavTitle: true
-  favicon: /icon-192.png
-  faviconSvg: /favicon.svg
+  favicon: https://status.patch-it.dev/icon-192.png
+  faviconSvg: https://status.patch-it.dev/favicon.svg
   theme: dark
   # Our home view: overall banner, 90-day uptime bars per service, incidents (assets/status.js + status.css).
   scripts:
-    - src: /status.js
+    - src: https://status.patch-it.dev/status.js
   links:
     - rel: stylesheet
-      href: /status.css
+      href: https://status.patch-it.dev/status.css
   introTitle: "patch-it system status"
   introMessage: Live status of the patch-it website and docs, checked every 5 minutes from GitHub, independently of our own hosting. Incidents are tracked as [GitHub issues](https://github.com/patch-it-dev/patch-it-uptime/issues).
   navbar:
